@@ -8,7 +8,7 @@ export default function Task() {
         <div className="relative">
             {/* Background container with image and opacity */}
             <div className="absolute inset-0 flex justify-center items-center">
-                <div className="w-[50vw] h-[50vh] md:w-[60vw] md:h-[100vh] lg:w-[60vw] bg-[url('/memo_logo.png')] bg-center bg-no-repeat bg-cover opacity-10 animate-pulse"></div>
+                <div className="w-[50vw] h-[50vh] md:w-[60vw] md:h-[100vh] lg:w-[60vw] opacity-10 animate-pulse"></div>
             </div>
 
             {/* Main content */}
@@ -74,18 +74,6 @@ export default function Task() {
                 </div>
             </div>
 
-            {/* Horizontal line with memo logo */}
-            <div className="flex justify-center items-center mt-[150px] gap-3">
-                <div className="w-[40%] md:w-[30%] h-[1px] bg-[#929292] border-[#929292] border-[1px] border-dashed"></div>
-                <Image
-                    src="/memo_logo.png"
-                    width={41}
-                    height={41}
-                    alt="memo"
-                    className="w-[40px] h-[40px] animate-spin-slow"
-                />
-                <div className="w-[40%] md:w-[30%] h-[1px] bg-[#929292] border-[#929292] border-[1px] border-dashed"></div>
-            </div>
         </div>
     );
 }

@@ -112,7 +112,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center sm:pb-[25px] sm:border-[#616161] sm:border-b-[1px] sm:font-bold">
         {/* Logo */}
         <div className="text-white text-[18px] md:text-[24px] lg:text-[28px]">
-          CARV Protocol
+          MEMO Protocol
         </div>
 
         {/* Hamburger Button */}

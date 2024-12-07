@@ -27,7 +27,7 @@ export default function BindingPage() {
     };
 
     return (
-        <div className="mt-[55px]">
+        <div className="mt-[105px]">
             <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-3">
                 <div>
                     <div className="text-[34px] text-center sm:text-left font-bold bg-gradient-to-r from-[#05F292] to-[#214177] text-transparent bg-clip-text">
@@ -47,7 +47,7 @@ export default function BindingPage() {
                             selectedIndex === index
                                 ? 'bg-gradient-to-r from-[#214177] to-[#064E33] scale-105 shadow-lg'
                                 : 'bg-[#0663412B] hover:scale-105'
-                        } pt-[35px] pb-[25px] px-[5px] flex items-center justify-around rounded-[10px] cursor-pointer`}
+                        } pt-[35px] pb-[25px] px-[10px] flex items-center justify-around rounded-[10px] cursor-pointer`}
                     >
                         <Image
                             src={item.src}
@@ -56,8 +56,8 @@ export default function BindingPage() {
                             height={75}
                             className="w-[75px] h-[75px] transform hover:rotate-3 transition-transform duration-300"
                         />
-                        <div className="flex flex-col items-center">
-                            <div className="font-bold text-white text-[20px] leading-[30px]">
+                        <div className="flex flex-col items-center justify-center">
+                            <div className="font-bold text-white text-[20px] leading-[30px] text-center">
                                 {item.reward}
                             </div>
                             <div

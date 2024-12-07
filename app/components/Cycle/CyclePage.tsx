@@ -92,7 +92,7 @@ export default function CyclePage() {
                                     {card.participants} Participants
                                 </p>
                                 <div
-                                    className={`flex items-center gap-2 mt-3 py-2 px-4 rounded-full text-[17.5px] font-bold ${
+                                    className={`flex justify-center items-center gap-2 mt-3 py-2 px-4 rounded-full text-[17.5px] font-bold ${
                                         activeIndex === index
                                             ? 'bg-gradient-to-b from-[#05F292] to-[#038C54]'
                                             : 'bg-[#05F292] hover:bg-gradient-to-b hover:from-[#05F292] hover:to-[#038C54]'

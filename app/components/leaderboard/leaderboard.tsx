@@ -66,7 +66,7 @@ export default function LeaderboardPage() {
                         },
                         {
                             title: { full: "Friends Invited This Week", short: "Friends" },
-                            value: "1K+",
+                            value: "2K+",
                         },
                         {
                             title: { full: "Leaderboard Reward", short: "Reward" },
@@ -81,7 +81,7 @@ export default function LeaderboardPage() {
                                 <span className="hidden lg:block">{item.title.full}</span>
                                 <span className="lg:hidden">{item.title.short}</span>
                             </div>
-                            <div className="text-white font-bold text-[16px] sm:leading-[20px] lg:leading-[30px] bg-[#1E4874] px-[10px] lg:px-[25px] sm:py-[12px] lg:py-[17px] rounded-[10px] mt-2 w-full sm:w-auto">
+                            <div className="text-white font-bold text-[16px] sm:leading-[20px] lg:leading-[30px] bg-[#1E4874] px-[10px] lg:px-[25px] sm:py-[12px] lg:py-[17px] rounded-[10px] mt-2 w-full sm:w-auto cursor-pointer">
                                 {item.value}
                             </div>
                         </div>

@@ -38,10 +38,10 @@ export default function RatePage() {
                 </div>
 
                 {/* Right Section */}
-                <div className="text-[14px] sm:text-[16px] md:text-[19px] leading-[24px] sm:leading-[28px] md:leading-[36px] text-white text-center px-[10px] py-[5px] bg-gradient-to-br from-[#1E4874] to-[#0EB476] rounded-full hover:scale-105 transition-transform cursor-pointer">
+                <div className="text-[14px] sm:text-[16px] md:text-[19px] leading-[24px] sm:leading-[28px] md:leading-[36px] text-center px-[10px] py-[5px] text-[#0EB476] rounded-full hover:scale-105 transition-transform">
                     Coming Soon
                 </div>
             </div>
         </div>
     );
-}
+}      

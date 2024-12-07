@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar/navbar";
 import HomePage from "@/app/components/home/HomePage";
 import Binding from "@/app/components/binding/page"
 import CyclePage from "./components/Cycle/CyclePage";
-import BonusPage from "./components/Bonus/BonusPage";
+import Bonus from "./components/Bonus/Bonus";
 import LeaderboardPage from "./components/leaderboard/leaderboard";
 import RatePage from "./components/Rate/RatePage";
 import { FlagProvider } from "@/app/lib/context/FlagContext";
@@ -17,7 +17,7 @@ export default function Home() {
           <div>
             <Binding />
             <CyclePage />
-            <BonusPage />                  
+            <Bonus />                  
             <LeaderboardPage />
             <RatePage /> 
           </div>
