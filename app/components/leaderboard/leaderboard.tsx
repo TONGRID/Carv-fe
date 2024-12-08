@@ -17,8 +17,51 @@ const elements = [
     { id: 10, address: "0x3a2...0813", score: 6, soul: "+50,000 SOUL", isCrown: false },
 ];
 
+interface PopupData {
+    invitee: string;
+    time: string;
+    points: number;
+}
+
 export default function LeaderboardPage() {
     const [isWeekly, setIsWeekly] = useState(true);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupData, setPopupData] = useState<PopupData[]>([]);
+
+    const handlePopup = () => {
+        // Mock invitation details
+        const mockData: PopupData[] = [
+            { invitee: "0x06B45...EBFEe", time: "2024-12-01 14:30:32", points: 100 },
+            { invitee: "0x06B45...EBFE1", time: "2024-12-03 10:45:32", points: 50 },
+            { invitee: "0x06B45...EBFE2", time: "2024-12-03 10:45:32", points: 50 },
+            { invitee: "0x06B45...EBFE3", time: "2024-12-03 10:45:32", points: 50 },
+            { invitee: "0x06B45...EBFE4", time: "2024-12-03 10:45:32", points: 50 },
+        ];
+        setPopupData(mockData);
+        setShowPopup(true);
+    };
+
+    const closePopup = () => setShowPopup(false);
+
+    const inviteDatas = [
+        {
+            title: { full: "My Rank", short: "Rank" },
+            value: "1K+",
+        },
+        {
+            title: { full: "My Smart Wallet Address", short: "Wallet" },
+            value: "0x49e65cd..4c",
+        },
+        {
+            title: { full: "Friends Invited This Week", short: "Friends" },
+            value: "2K+",
+            onClick: handlePopup, // Add onClick to this item
+        },
+        {
+            title: { full: "Leaderboard Reward", short: "Reward" },
+            value: "100 SOUL",
+        },
+    ];
 
     return (
         <div className="mt-[68px] px-4 sm:px-6 lg:px-12 flex flex-col items-center">
@@ -52,30 +95,14 @@ export default function LeaderboardPage() {
                 </div>
             </div>
 
-            {/* Stats Section */}
+            {/* Stats Section */} 
             <div className="w-full mt-[20px] sm:mt-[33px] py-[30px] sm:py-[61px] px-[10px] sm:px-[20px] border-x-[3px] border-[#05F292] rounded-[10px] bg-[#05F2920D] flex flex-col items-center shadow-md glow-effect">
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 w-full fade-in">
-                    {[
-                        {
-                            title: { full: "My Rank", short: "Rank" },
-                            value: "1K+",
-                        },
-                        {
-                            title: { full: "My Smart Wallet Address", short: "Wallet" },
-                            value: "0x49e65cd..4c",
-                        },
-                        {
-                            title: { full: "Friends Invited This Week", short: "Friends" },
-                            value: "2K+",
-                        },
-                        {
-                            title: { full: "Leaderboard Reward", short: "Reward" },
-                            value: "100 SOUL",
-                        },
-                    ].map((item, index) => (
+                    {inviteDatas.map((item, index) => (
                         <div
                             key={index}
                             className="flex flex-col justify-center items-center text-center gap-5 transition hover:scale-105"
+                            onClick={item.onClick} // Trigger onClick if provided
                         >
                             <div className="text-white font-bold text-[20px] sm:leading-[20px] lg:leading-[30px] h-[10px] sm:h-[20px] lg:h-[40px]">
                                 <span className="hidden lg:block">{item.title.full}</span>
@@ -89,8 +116,46 @@ export default function LeaderboardPage() {
                 </div>
             </div>
 
+
+            {/* Popup */}
+            {showPopup && (
+                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-[#196144] bg-opacity-50 z-50">
+                    <div className="bg-[#01180E] p-6 rounded-lg shadow-lg w-[90%] sm:w-[50%] border-x-[3px] border-[#05F292]">
+                        <h2 className="text-xl font-bold mb-4  text-white text-[24px]">Invitation Details</h2>
+                        <button
+                            className="absolute top-4 right-4 text-white font-bold"
+                            onClick={closePopup}
+                        >
+                            Close
+                        </button>
+                        <ul>
+                            <li className='mb-3 border-b pb-3 last:border-none last:mb-0'>
+                                <div className='flex justify-between w-full'>
+                                    <div className='w-[40%] text-center text-[20px] font-bold text-white'>Invitee</div>
+                                    <div className='w-[40%] text-center text-[20px] font-bold text-white'>Time</div>
+                                    <div className='w-[20%] text-center text-[20px] font-bold text-white'>Points</div>
+                                </div>
+                            </li>
+                            {popupData.map((data, i) => (
+                                <li
+                                    key={i}
+                                    className="mb-3 border-b pb-3 last:border-none last:mb-0"
+                                >
+                                    <div className='flex justify-between w-full'>
+                                        <div className='w-[40%] text-center text-white'>{data.invitee}</div>
+                                        <div className='w-[40%] text-center text-white'>{data.time}</div>
+                                        <div className='w-[20%] text-center text-white'>{data.points}</div>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            )}
+
+
             {/* Leaderboard */}
-            <div className="bg-gradient-to-br from-[#064E33] to-[#214177] rounded-[11px] py-[40px] sm:py-[59px] px-[20px] sm:px-[51px] mt-[30px] sm:mt-[45px] w-full">
+            <div className="bg-[#01180E] rounded-[11px] py-[40px] sm:py-[59px] px-[20px] sm:px-[51px] mt-[30px] sm:mt-[45px] w-full border-x-[3px] border-[#05F292]">
                 <div className="flex justify-between items-center text-center mb-[30px] sm:mb-[43px] fade-in">
                     <div className="text-white text-[16px] sm:text-[20px] font-bold leading-[24px] sm:leading-[30px] w-[5%]">
                         Rank
